@@ -1,9 +1,13 @@
 import * as machine from "./State.js"
-import {CYK} from "./State.js";
 
 $(document).ready(function() {
     let states;
     changeView("homePane");
+
+    $('.exitBtn').click(function() {
+        changeView("homePane");
+
+    });
     
     $('#submitBtn').click(function (states, inputs) {
         states = $('#inputStates').val().split(',');
@@ -25,7 +29,7 @@ $(document).ready(function() {
         for(let i = 0; i < keys.length; i++){
             let array = $('#'+keys[i]+i).val().split('/');
             for(let j = 0; j < array.length; j++){
-                machine.state[keys[i]].transactions[j] = array[j];
+                machine.state[keys[i]].transactions[array[j]] = j;
 
             }
 
@@ -33,7 +37,13 @@ $(document).ready(function() {
 
         let string = $('#mString').val();
 
-        machine.CYK(string);
+        if(machine.CYK(string)){
+            alert("The string is accepted");
+        }else{
+            alert("The string is not accepted");
+        }
+
+        $('#mString').val("");
 
     });
 
