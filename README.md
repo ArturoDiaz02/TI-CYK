@@ -1,10 +1,10 @@
-# <b>_Finite States Machine_ 🔄 </b>
+# <b>_Cocke-Younger-Kasami_ 🔄 </b>
 
-_A web application that allows to enter a moore or mealy automata and as a result it shows the respective minimum reduction of the automata._
+_A web application that receives a GIC G language in FNC and using the CYK algorithm checks if a string X is accepted by the language or not._
 
 ## <b>_Execution_</b> 📦
 
-* **Web Side** ➡ [click here](https://arturodiaz02.github.io/TI-finite-state-machine/)
+* **Web Side** ➡ [click here](https://arturodiaz02.github.io/TI-CYK/)
 
 ## <b>_Build With_</b> 🛠️
 
@@ -23,8 +23,8 @@ _We used [GitHub](https://github.com/) to the versioned. For all the updates of 
 
 ## <b>_Documentation_</b> 💬
 
-* **Manual** [click here](https://github.com/ArturoDiaz02/TI-finite-state-machine/blob/master/docs/Manual.pdf)
-* **Problem** [click here](https://github.com/ArturoDiaz02/TI-finite-state-machine/blob/master/docs/tarea1IT(22-2).pdf) <br>
+* **Manual** [click here](https://github.com/ArturoDiaz02/TI-CYK/blob/master/docs/Manual.pdf)
+* **Problem** [click here](https://github.com/ArturoDiaz02/TI-CYK/blob/master/docs/tarea2IT(22-2).pdf) <br>
 ```
 ./docs/
 ```
