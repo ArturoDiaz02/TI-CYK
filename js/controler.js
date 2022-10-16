@@ -38,9 +38,9 @@ $(document).ready(function() {
         let string = $('#mString').val();
 
         if(machine.CYK(string)){
-            alert("The string is accepted");
+            alert("The string is accepted ✅");
         }else{
-            alert("The string is not accepted");
+            alert("The string is not accepted 🚫");
         }
 
         $('#mString').val("");
