@@ -13,14 +13,12 @@ $(document).ready(function() {
         states = $('#inputStates').val().split(',');
 
         if(states[0] === ''){
-            $('#states').val('');
-        }else{
-            machine.getInitialStates(states);
-            changeView("tableView");
-            loadHTML("#table", machine.createTable());
-
-
+            states = [];
         }
+
+        machine.getInitialStates(states);
+        changeView("tableView");
+        loadHTML("#table", machine.createTable());
     });
 
     $('#submitTable').click(function () {
@@ -29,11 +27,17 @@ $(document).ready(function() {
         for(let i = 0; i < keys.length; i++){
             let array = $('#'+keys[i]+i).val().split('/');
             for(let j = 0; j < array.length; j++){
-                machine.state[keys[i]].transactions[array[j]] = j;
+                if(i != 0 && array.includes("?")){
+                    alert("You can't have a lambda in the middle of the table");
+                    return;
+                }else{
+                    machine.state[keys[i]].transactions[array[j]] = j;
+                }
 
             }
 
         }
+
 
         let string = $('#mString').val();
 
