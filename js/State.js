@@ -41,13 +41,13 @@ export function CYK(string){
     let matrix = createArray(n);
 
     //acepta la cadena vacia si en S esta lambda
-    if(string == "" && "?" in state['S'].transactions){return true}
+    if(string === "" && "?" in state['S'].transactions){return true}
 
     //initialization
     for (let i = 0; i < n; i++) {
         addKey(string.charAt(i), matrix, i, j);
     }
-
+    
     //repeat and end
     for (j = 1; j < n; j++) {
 
@@ -78,8 +78,8 @@ export function CYK(string){
     }
 
     //verify if the string is accepted
-   // console.log(matrix);
-    return matrix[n-1][0].includes("S") ? true : false;
+    console.log(matrix);
+    return !!matrix[n - 1][0].includes("S");
 
 }
 
@@ -92,20 +92,17 @@ export function CYK(string){
  */
 function addKey(letter, matrix, i, j){
     Object.keys(state).forEach(function (item) {
-        Object.keys(state[item].transactions).forEach(function (item2) {
-            if (item2.indexOf(letter) != -1 && !matrix[j][i].includes(item)) {
-                if(matrix[j][i] === ""){
-                    matrix[j][i] = item;
-                }else{
-                    matrix[j][i] += "," + item;
-                }
+        if(letter in state[item].transactions && !matrix[j][i].includes(item)){
+            if(matrix[j][i] === ""){
+                matrix[j][i] = item;
+            }else{
+                matrix[j][i] += "," + item;
             }
-        });
 
+        }
     });
 
 }
-
 
 /**
  * This method allows to create an array of arrays.
